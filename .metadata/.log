@@ -1,0 +1,20 @@
+!SESSION 2014-10-06 15:52:41.977 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_67
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.standard.product -product org.eclipse.epp.package.standard.product -keyring /Users/mereltheisen/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -data /Users/mereltheisen/Documents/UCL/GC01/GC01Git -product org.eclipse.epp.package.standard.product -keyring /Users/mereltheisen/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-10-06 15:52:47.055
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-10-06 15:56:32.034 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_67
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.standard.product -product org.eclipse.epp.package.standard.product -product org.eclipse.epp.package.standard.product -product org.eclipse.epp.package.standard.product -keyring /Users/mereltheisen/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -product org.eclipse.epp.package.standard.product -product org.eclipse.epp.package.standard.product -data /Users/mereltheisen/Documents/UCL/GC01/GC01Git -product org.eclipse.epp.package.standard.product -keyring /Users/mereltheisen/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-10-06 15:56:39.445
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
