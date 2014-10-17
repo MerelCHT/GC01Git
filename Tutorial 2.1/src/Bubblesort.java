@@ -1,13 +1,11 @@
 
 public class Bubblesort {
+	
+	//This initialises the array that needs to be sorted
 	public static void main(String[] args)
 	{
-		int[] A = {84, 69, 76, 86, 94, 91};
-		//Sort(A);
-	//}
-	
-	//public static void Sort(int[] array)
-	//{
+		int[] A = {1, 84, 69, 76, 86, 94, 91, 121};
+		//Makes an int to temporarily store an int
 		int temporary;
 		for(int i = 0; i < A.length; i++)
 		{
@@ -21,7 +19,6 @@ public class Bubblesort {
 				}
 			
 			}
-			
 		}
 		for(int n = 0; n < A.length; n++)
 		{

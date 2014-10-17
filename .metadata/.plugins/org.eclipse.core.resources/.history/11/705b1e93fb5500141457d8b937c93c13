@@ -1,0 +1,19 @@
+package Radargraph;
+
+import java.awt.Graphics;
+import javax.swing.JPanel;
+
+public class Charts extends JPanel{
+	
+	public Charts(double[] values, String[] names){
+		
+	}
+
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		
+		//Bar chart drawing code here.
+	}
+	
+	
+}

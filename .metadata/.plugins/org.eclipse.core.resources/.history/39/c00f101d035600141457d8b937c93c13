@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Arraylist {
+	
+	public static void main(String[] args){
+		ArrayList aList = new ArrayList();
+		Random rand = new Random();
+		
+		for(int i = 0; i < 100; i++){
+			aList.add(rand.nextInt(10));
+		}
+		System.out.println(aList);
+		int sum = 0;
+		for(int i = 0; i < aList.size(); i++){
+			int checkEven = (int) aList.get(i);
+			if(checkEven % 2 == 0){
+				sum = sum + checkEven;
+				System.out.println(sum);
+			}
+			
+			}
+		}
+	}
+

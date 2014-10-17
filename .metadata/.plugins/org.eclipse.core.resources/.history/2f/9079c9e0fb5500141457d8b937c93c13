@@ -1,0 +1,23 @@
+package BarChart;
+
+import java.awt.Graphics;
+import javax.swing.JPanel;
+
+public class ChartPanel extends JPanel{
+	
+	public ChartPanel(double[] values, String[] names){
+		
+	}
+
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		
+		//Bar chart drawing code here.
+		int height = getSize().height;
+		int width = getSize().width;
+		
+		System.out.println(height);
+		System.out.println(width);
+	}
+	
+}

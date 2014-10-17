@@ -100,9 +100,21 @@ public class Ex5 {
 		
 		//Checks whether the user wants to perform a next move or wants to exit. 
 		Boolean exit = false;
+		int counter = 0;
 		while(!exit)
 		{
 			printBoard(chessboard);
+
+			if(counter % 2 == 0)
+			{
+				System.out.println("It's white's turn.");
+			}
+			else
+			{	
+				System.out.println("It's black's turn.");
+			}
+			counter++;
+			
 			System.out.println("What is your next move?");
 			String move = chessmove.nextLine();
 			if(move.equals("exit"))
@@ -337,6 +349,7 @@ public class Ex5 {
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KING) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_PAWN) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_QUEEN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KNIGHT) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_ROOK))
 				{
 					validMove = false;
@@ -363,6 +376,7 @@ public class Ex5 {
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KING) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_PAWN) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_QUEEN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KNIGHT) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_ROOK))
 				{
 					validMove = false;
@@ -386,6 +400,7 @@ public class Ex5 {
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KING) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_PAWN) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_QUEEN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_ROOK) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KNIGHT))
 				{
 					validMove = false;
@@ -399,9 +414,9 @@ public class Ex5 {
 			//This checks whether there are no pieces on the way to the new position. 
 			else
 			{
-				for(int i = 1; i < newPosX; i++)
+				for(int i = 0; i < newPosX; i++)
 				{
-					for(int j = 1; j < newPosY; j++)
+					for(int j = 0; j < newPosY; j++)
 					{
 						if(chessboard[i][j] == Chessmen.EMPTY)
 						{
@@ -425,6 +440,7 @@ public class Ex5 {
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KING) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_PAWN) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_QUEEN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_ROOK) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KNIGHT))
 				{
 					validMove = false;
@@ -438,9 +454,9 @@ public class Ex5 {
 			//This checks whether there are no pieces on the way to the new position. 
 			else
 			{
-				for(int i = 1; i < newPosX; i++)
+				for(int i = 0; i < newPosX; i++)
 				{
-					for(int j = 1; j < newPosY; j++)
+					for(int j = 0; j < newPosY; j++)
 					{
 						if(chessboard[i][j] == Chessmen.EMPTY)
 						{
@@ -467,6 +483,7 @@ public class Ex5 {
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KING) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_PAWN) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_QUEEN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_BISHOP) ||
 					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KNIGHT))
 				{
 					validMove = false;
@@ -480,9 +497,9 @@ public class Ex5 {
 			//This checks whether there are no pieces on the way to the new position. 
 			else
 			{
-				for(int i = 1; i < newPosX; i++)
+				for(int i = 0; i < newPosX; i++)
 				{
-					for(int j = 1; j < newPosY; j++)
+					for(int j = 0; j < newPosY; j++)
 					{
 						if(chessboard[i][j] == Chessmen.EMPTY)
 						{
@@ -509,6 +526,7 @@ public class Ex5 {
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KING) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_PAWN) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_QUEEN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_BISHOP) ||
 					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KNIGHT))
 				{
 					validMove = false;
@@ -522,9 +540,9 @@ public class Ex5 {
 			//This checks whether there are no pieces on the way to the new position. 
 			else
 			{
-				for(int i = 1; i < newPosX; i++)
+				for(int i = 0; i < newPosX; i++)
 				{
-					for(int j = 1; j < newPosY; j++)
+					for(int j = 0; j < newPosY; j++)
 					{
 						if(chessboard[i][j] == Chessmen.EMPTY)
 						{
@@ -540,9 +558,78 @@ public class Ex5 {
 		    
 		}
 		
+		//Makes sure the black queen can't land on any of the other black pieces
+		else if(chessboard[oldPosX][oldPosY] == Chessmen.BLACK_QUEEN)
+		{
+			if(
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_ROOK) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KING) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_PAWN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_BISHOP) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KNIGHT))
+			{
+				validMove = false;
+			}
+			else
+			{
+				validMove = true;
+			}
+		}
+		
+		//Makes sure the white queen can't land on any of the other white pieces
+		else if(chessboard[oldPosX][oldPosY] == Chessmen.WHITE_QUEEN)
+		{
+			if(
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_ROOK) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KING) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_PAWN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_BISHOP) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KNIGHT))
+			{
+				validMove = false;
+			}
+			else
+			{
+				validMove = true;
+			}
+		}
+		
+		//Makes sure a black pawn can't land on any of the other black pieces
+		else if(chessboard[oldPosX][oldPosY] == Chessmen.BLACK_PAWN)
+		{
+			if(
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_ROOK) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KING) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_QUEEN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_BISHOP) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_KNIGHT) ||
+					(chessboard[newPosX][newPosY] == Chessmen.BLACK_PAWN))
+			{
+				validMove = false;
+			}
+			else
+			{
+				validMove = true;
+			}
+		}
+		
+		//Makes sure a white pawn can't land on any of the other white pieces
 		else
 		{
-			validMove = true;
+			if(
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_ROOK) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KING) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_QUEEN) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_BISHOP) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_KNIGHT) ||
+					(chessboard[newPosX][newPosY] == Chessmen.WHITE_PAWN))
+			{
+				validMove = false;
+			}
+			else
+			{
+				validMove = true;
+			}
 		}
 		
 		return validMove;

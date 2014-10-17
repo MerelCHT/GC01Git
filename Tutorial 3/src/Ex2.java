@@ -3,9 +3,8 @@ public class Ex2 {
 	
 	public static void main(String[] args)
 	{
-		String[] arr = {"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog."};
+		String[] arr = {"The ", "quick ", "brown ", "fox ", "jumps ", "over ", "the ", "lazy ", "dog."};
 		arr = remElement(arr, 7);
-		System.out.println(arr);
 		
 	}
 	
@@ -23,7 +22,7 @@ public class Ex2 {
 				arr2[n] = array[n + 1];
 			}
 			
-			System.out.println(arr2[n]);
+			System.out.print(arr2[n]);
 		}
 		
 		return array;

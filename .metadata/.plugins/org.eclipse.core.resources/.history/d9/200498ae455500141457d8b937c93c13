@@ -1,0 +1,6 @@
+package Radargraph;
+
+public class barChart {
+	Frame frame = new JFrame();
+	frame.setSize
+}
