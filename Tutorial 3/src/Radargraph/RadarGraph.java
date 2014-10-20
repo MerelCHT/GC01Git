@@ -10,11 +10,8 @@ import javax.swing.JPanel;
 
 public class RadarGraph extends JPanel
 {
-	
-	double centerX;
-	double centerY;
-	double arm;
-	double[] angles = new double[5];
+
+	double[][] outline = calcOutline();
 	
 	public RadarGraph()
 	{
@@ -27,24 +24,13 @@ public class RadarGraph extends JPanel
 		//clear the screen
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
-		drawWeb(g2d);
-		
+		drawWeb(g2d, outline);
 		System.out.println("redraw");
-		
 	}
 	
-	public void XandY(Graphics2D g2d){
-		centerX = getSize().width * 0.5;
-		System.out.println(centerX);
-		centerY = getSize().height * 0.5;
-		System.out.println(centerY);
-		arm = getSize().height * 0.45;
-		//angles[0] = -Math.PI/2;
-	}
 	
-	private void drawWeb(Graphics2D g2d)
+	private void drawWeb(Graphics2D g2d, double[][] outline)
 	{
-		
 		double centerX = getSize().width * 0.5;
 		double centerY = getSize().height * 0.5;
 		double arm = getSize().height * 0.45;
@@ -56,17 +42,6 @@ public class RadarGraph extends JPanel
 		int endpointY = (int) centerY + (int) (arm * Math.sin(angles[0]));;
 		g2d.drawLine((int) centerX, (int) centerY, (int) endpointX, (int) endpointY);
 	
-		//Define an array of arrays of doubles that will hold the values for individual coloured outlines. 
-		double[][] outline = new double[3][5];
-		Random random = new Random();
-		for(int i = 0; i < outline.length; i++){
-			for(int j = 0; j < outline[i].length; j++){
-				double num = random.nextDouble(); 
-				outline[i][j] = Math.abs(num - 0.1 * i);
-				System.out.println(outline[i][j]);
-			}
-		}	
-		
 		//Draw the 5 arms. 
 		for(int i = 1; i < 5; i++){
 			angles[i] = angles[i-1] +  (Math.PI*2)/5;
@@ -75,6 +50,7 @@ public class RadarGraph extends JPanel
 			g2d.drawLine((int) centerX, (int) centerY, (int) endpointX, (int) endpointY);
 		}
 		
+		/*
 		//Draw the lines in the web from arm to arm. 
 		for(int n = 0; n < 180; n+=20){
 			for(int i = 0; i < 5; i++){
@@ -85,6 +61,8 @@ public class RadarGraph extends JPanel
 				g2d.drawLine(startX, startY, endX, endY);
 			}
 		}
+		
+		*/
 		
 		//Draw 3 different pentagons. 
 		for(int i = 0; i < outline.length; i++){
@@ -100,23 +78,27 @@ public class RadarGraph extends JPanel
 				int beginOutlineY = (int) centerY + (int) (arm * outline[i][j] * Math.sin(angles[j]));
 				int endOutlineX = (int) centerX + (int) (arm * outline[i][(j + 1) % 5] * Math.cos(angles[(j + 1) %5]));
 				int endOutlineY = (int) centerY + (int) (arm * outline[i][(j + 1) % 5] * Math.sin(angles[(j + 1) %5]));
-				g2d.drawLine(beginOutlineX, beginOutlineY, endOutlineX, endOutlineY);
-				
-				//g2d.fillPolygon(outline[i], outline[j], 3);
-			
+				g2d.drawLine(beginOutlineX, beginOutlineY, endOutlineX, endOutlineY);			
 		}
 			
 		}
-		
 
-		
-		
-		
-		
-		
-		
-
+	}
+	
+	public static double[][] calcOutline(){
+	//Define an array of arrays of doubles that will hold the values for individual coloured outlines. 
+			double[][] outline = new double[3][5];
+			Random random = new Random();
+			for(int i = 0; i < outline.length; i++){
+				for(int j = 0; j < outline[i].length; j++){
+					double num = random.nextDouble(); 
+					outline[i][j] = Math.abs(num - 0.1 * i);
+					System.out.println(outline[i][j]);
+				}
+			}
+			return outline;
 		
 	}
+	
 	
 }
