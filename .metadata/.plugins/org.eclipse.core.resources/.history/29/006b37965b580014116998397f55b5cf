@@ -1,0 +1,19 @@
+package pieces;
+
+public class Knight extends AbstractPiece {
+	
+	public Knight(boolean isWhite){
+		super(isWhite);
+	}
+		
+	public int relativeValue(){
+		return 3;
+	}
+	
+	public void draw(){
+		
+	}
+	
+	public boolean isMoveValid;
+
+}

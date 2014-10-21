@@ -1,0 +1,9 @@
+package pieces;
+
+public class Bishop extends AbstractPiece {
+	
+	public int Bishop(){
+		return 3;
+	}
+
+}

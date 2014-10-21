@@ -1,5 +1,13 @@
 package Chess;
 
+import pieces.AbstractPiece;
+import pieces.Pawn;
+import pieces.Rook;
+import pieces.Bishop;
+import pieces.Knight;
+import pieces.King;
+import pieces.Queen;
+
 import java.util.Scanner;
 
 	public class Chess {
@@ -7,6 +15,8 @@ import java.util.Scanner;
 		/**
 		 * @param args
 		 */
+		
+		/*
 		//Creates all the possible chess pieces, including empty for an empty space on the chess board.
 		public enum Chessmen{
 			WHITE_KING,
@@ -24,84 +34,89 @@ import java.util.Scanner;
 			EMPTY
 		}
 		
+		*/
+		
 		//Make a constant to set the dimensions of the chess board, instead of using "magic" numbers. 
 		public static final int DIMENSIONS = 8;
 		
 		//Creates a chessboard matrix of size 8 x 8. 
 		public static void main(String[] args) {
 			Scanner chessmove = new Scanner(System.in);
-			Chessmen[][] chessboard = new Chessmen [DIMENSIONS] [DIMENSIONS];
+			AbstractPiece[][] chessboard = new AbstractPiece [DIMENSIONS] [DIMENSIONS];
+			
 			for(int i = 0; i < chessboard.length ; i++)
 			{
 				for(int j = 0; j < chessboard[i].length; j++)
 				{
 					if(i == 1)
 					{
-						chessboard[i][j] = Chessmen.BLACK_PAWN;
+						chessboard[i][j] = new Pawn(false);
 					}
 
 					else if(i == 0 && (j == 0 || j == 7))
 					{
-						chessboard[i][j] = Chessmen.BLACK_ROOK;
+						chessboard[i][j] = new Rook(false);
 					}
 
 					else if(i == 0 && (j == 1 || j == 6))
 					{
-						chessboard[i][j] = Chessmen.BLACK_KNIGHT;
+						chessboard[i][j] = new Knight(false);
 					}
 
 					else if(i == 0 && (j == 2 || j == 5))
 					{
-						chessboard[i][j] = Chessmen.BLACK_BISHOP;
+						chessboard[i][j] = new Bishop(false);
 					}
 
 					else if(i == 0 && j == 3)
 					{
-						chessboard[i][j] = Chessmen.BLACK_QUEEN;
+						chessboard[i][j] = new Queen(false);
 					}
 
 					else if(i == 0 && j == 4)
 					{
-						chessboard[i][j] = Chessmen.BLACK_KING;
+						chessboard[i][j] = new King(false);
 					}
 
 					else if(i == 6)
 					{
-						chessboard[i][j] = Chessmen.WHITE_PAWN;
+						chessboard[i][j] = new Pawn(true);
 					}
 
 					else if(i == 7 && (j == 0 || j == 7))
 					{
-						chessboard[i][j] = Chessmen.WHITE_ROOK;
+						chessboard[i][j] = new Rook(true);
 					}
 
 					else if(i == 7 && (j == 1 || j == 6))
 					{
-						chessboard[i][j] = Chessmen.WHITE_KNIGHT;
+						chessboard[i][j] = new Knight(true);
 					}
 
 					else if(i == 7 && (j == 2 || j == 5))
 					{
-						chessboard[i][j] = Chessmen.WHITE_BISHOP;
+						chessboard[i][j] = new Bishop(true);
 					}
 
 					else if(i == 7 && j == 3)
 					{
-						chessboard[i][j] = Chessmen.WHITE_QUEEN;
+						chessboard[i][j] = new Queen(true);
 					}
 
 					else if(i == 7 && j == 4)
 					{
-						chessboard[i][j] = Chessmen.WHITE_KING; 
+						chessboard[i][j] = new King(true);
 					}
 
 					else
 					{
-						chessboard[i][j] = Chessmen.EMPTY;
+						chessboard[i][j] = null;
 					}
 
 				}
+				
 			}
+			
 			
 			//Checks whether the user wants to perform a next move or wants to exit. 
 			Boolean exit = false;

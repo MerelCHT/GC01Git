@@ -58,8 +58,7 @@ public class ChartPanel extends JPanel{
 	      g.drawString(names[i], valueX, valueY);
 	   
 	    }
-		  
-		
+
 		
 	}
 	

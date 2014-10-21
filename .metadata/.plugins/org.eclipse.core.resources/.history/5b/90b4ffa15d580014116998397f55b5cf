@@ -1,0 +1,28 @@
+package pieces;
+
+public class Pawn extends AbstractPiece{
+	
+	public Pawn(boolean isWhite){
+		super(isWhite);
+	}
+		
+	public int relativeValue(){
+		return 1;
+	}
+	
+	public void draw(){
+		if (isWhite == true){
+			System.out.println( "\u2659 \t");
+		}
+		else{
+			System.out.println("\u265F \t");
+		}
+		
+	}
+	
+	public boolean isMoveValid(int srcRow, int srcCol, int destRow, int destCol){
+		return true;
+	}
+
+}
+

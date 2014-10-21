@@ -1,0 +1,9 @@
+package pieces;
+
+public class Rook extends AbstractPiece {
+	
+	public int Rook(){
+		return 5;
+	}
+
+}

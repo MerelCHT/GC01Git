@@ -1,0 +1,21 @@
+package pieces;
+
+public class King extends AbstractPiece{
+	
+	public King(boolean isWhite){
+		super(isWhite);
+	}
+		
+	public int relativeValue(){
+		return 1;
+	}
+	
+	public void draw(){
+		
+	}
+	
+	public boolean isMoveValid(int srcRow, int srcCol, int destRow, int destCol){
+		return true;
+	}
+
+}

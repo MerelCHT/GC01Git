@@ -1,0 +1,19 @@
+package pieces;
+
+public class Bishop extends AbstractPiece {
+	
+	public Bishop(boolean isWhite){
+		super(isWhite);
+	}
+		
+	public int relativeValue(){
+		return 3;
+	}
+	
+	public void draw(){
+		
+	}
+	
+	public boolean isMoveValid;
+
+}

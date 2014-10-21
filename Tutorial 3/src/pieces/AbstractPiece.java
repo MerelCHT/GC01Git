@@ -12,7 +12,7 @@ public abstract class AbstractPiece {
 	}
 	
 	/**
-	 * Returns ture if white, false otherwise.
+	 * Returns true if white, false otherwise.
 	 * @return
 	 */
 	public boolean isWhite(){
@@ -34,5 +34,6 @@ public abstract class AbstractPiece {
 	 * @return
 	 */
 	public abstract int relativeValue();
+	
 
 }

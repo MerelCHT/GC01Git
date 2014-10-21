@@ -1,0 +1,9 @@
+package pieces;
+
+public class Knight extends AbstractPiece {
+	
+	public int Knight(){
+		return 3;
+	}
+
+}
