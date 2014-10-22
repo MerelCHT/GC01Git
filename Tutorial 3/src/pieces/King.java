@@ -20,7 +20,16 @@ public class King extends AbstractPiece{
 	}
 	
 	public boolean isMoveValid(int srcRow, int srcCol, int destRow, int destCol){
-		return true;
+		if((destRow <= srcRow + 1 && destRow >= Math.abs(srcRow -1)) && (destCol <= srcCol + 1 && destCol >= Math.abs(srcCol -1)))
+		{
+			return true;
+			
+		}
+		
+		else
+		{
+			return false;
+		}
 	}
 
 }

@@ -114,10 +114,10 @@ import java.util.Scanner;
 					}
 
 				}
-				
+			}
 			}
 			
-			
+			/*
 			//Checks whether the user wants to perform a next move or wants to exit. 
 			Boolean exit = false;
 			int counter = 0;
@@ -151,9 +151,13 @@ import java.util.Scanner;
 				}
 			}
 		}
-		
+		*/
 		//This method takes the chessboard as an input and print it to the console.
-		public static void printBoard(Chessmen[][] chessboard){
+		public static void printBoard(AbstractPiece[][] chessboard){
+			
+			
+			
+			/*
 			String piece;
 			System.out.println("\t a \t b \t c \t d \t e \t f \t g \t h");
 			for(int i = 0; i< chessboard.length ; i++)
@@ -182,12 +186,15 @@ import java.util.Scanner;
 					System.out.print(piece);
 				}
 				System.out.print("\n");
+				
 
 			}
+			*/
 		}
 		
+		/*
 		//This method takes a chessboard and a move as input and performs the move on the board.
-		public static void move(Chessmen[][] chessboard, String move)
+		public static void move(AbstractPiece[][] chessboard, String move)
 		{	
 
 			//parse move string into components
@@ -294,7 +301,7 @@ import java.util.Scanner;
 			else if(checkMove(chessboard, oldPosX, oldPosY, newPosX, newPosY))
 			{
 				chessboard[newPosX][newPosY] = chessboard[oldPosX][oldPosY];
-				chessboard[oldPosX][oldPosY] = Chessmen.EMPTY;
+				chessboard[oldPosX][oldPosY] = null;
 			}
 			else
 			{
@@ -654,6 +661,6 @@ import java.util.Scanner;
 		}
 		
 
-	
+	*/
 
 }

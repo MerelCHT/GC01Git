@@ -9,4 +9,6 @@
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="java.awt.FontMetrics"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="pieces.Rook"/>
+<fullyQualifiedTypeName name="pieces.Pawn"/>
 </qualifiedTypeNameHistroy>
