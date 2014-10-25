@@ -23,7 +23,7 @@ public class BarChart {
 		
 		String[] names = new String[3];
 		
-		values[0] = 1;
+		values[0] = 5;
 		names[0] = "Item 1";
 		
 		values[1] = 2;

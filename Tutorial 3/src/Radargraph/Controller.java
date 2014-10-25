@@ -23,7 +23,6 @@ class Controller {
 		frame.setMinimumSize(new Dimension(640, 480));
 		frame.add(new RadarGraph());
 		frame.pack();
-		// doe iets
 		frame.setVisible(true);
 		
 		

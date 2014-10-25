@@ -55,7 +55,7 @@ public class ChartPanel extends JPanel{
 	      g.setColor(Color.red);
 	      g.fillRect(valueX, valueY, barWidth, height);
 	      g.setColor(Color.black);
-	      g.drawString(names[i], valueX, valueY);
+	      //g.drawString(names[i], valueX, valueY);
 	   
 	    }
 

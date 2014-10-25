@@ -38,19 +38,19 @@ public class RadarGraph extends JPanel
 		
 		angles[0] = -Math.PI/2;
 		
-		int endpointX = (int) centerX + (int) (arm * Math.cos(angles[0])); ;
-		int endpointY = (int) centerY + (int) (arm * Math.sin(angles[0]));;
+		int endpointX = (int) centerX + (int) (arm * Math.cos(angles[0]));
+		int endpointY = (int) centerY + (int) (arm * Math.sin(angles[0]));
 		g2d.drawLine((int) centerX, (int) centerY, (int) endpointX, (int) endpointY);
 	
 		//Draw the 5 arms. 
-		for(int i = 1; i < 5; i++){
+		for(int i = 1; i != 5; i++){
 			angles[i] = angles[i-1] +  (Math.PI*2)/5;
 			endpointX = (int) centerX + (int) (arm * Math.cos(angles[i])); 	
 			endpointY = (int) centerY + (int) (arm * Math.sin(angles[i]));
 			g2d.drawLine((int) centerX, (int) centerY, (int) endpointX, (int) endpointY);
 		}
 		
-		/*
+		
 		//Draw the lines in the web from arm to arm. 
 		for(int n = 0; n < 180; n+=20){
 			for(int i = 0; i < 5; i++){
@@ -62,23 +62,35 @@ public class RadarGraph extends JPanel
 			}
 		}
 		
-		*/
-		
+		int[] xPoints = new int[5];
+		int[] yPoints = new int[5];
+		int nPoints = 5;
+		Color darkPink = new Color(255, 0, 127);
+		Color turq = new Color(0,204,204);
+		Color lemon = new Color(153, 255, 51);
 		//Draw 3 different pentagons. 
 		for(int i = 0; i < outline.length; i++){
 			switch(i){
-			case 0: g2d.setColor(Color.blue); break;
-			case 1: g2d.setColor(Color.red); break;
-			case 2: g2d.setColor(Color.green); break;
+			case 0: g2d.setColor(darkPink); break;
+			case 1: g2d.setColor(turq); break;
+			case 2: g2d.setColor(lemon); break;
 			default: g2d.setColor(Color.black); break;
 			}
 			
 			for(int j = 0; j < outline[i].length; j++){
+				
+				
 				int beginOutlineX = (int) centerX + (int) (arm * outline[i][j] * Math.cos(angles[j]));
 				int beginOutlineY = (int) centerY + (int) (arm * outline[i][j] * Math.sin(angles[j]));
 				int endOutlineX = (int) centerX + (int) (arm * outline[i][(j + 1) % 5] * Math.cos(angles[(j + 1) %5]));
 				int endOutlineY = (int) centerY + (int) (arm * outline[i][(j + 1) % 5] * Math.sin(angles[(j + 1) %5]));
-				g2d.drawLine(beginOutlineX, beginOutlineY, endOutlineX, endOutlineY);			
+				xPoints[0] = (int) centerX + (int) (arm * outline[i][j] * Math.cos(angles[j]));
+				yPoints[0] = (int) centerY + (int) (arm * outline[i][j] * Math.sin(angles[j]));
+				xPoints[i + 1] = (int) centerX + (int) (arm * outline[i][(j + 1) % 5] * Math.cos(angles[(j + 1) %5]));
+				yPoints[i + 1] = (int) centerY + (int) (arm * outline[i][(j + 1) % 5] * Math.sin(angles[(j + 1) %5]));
+				
+				g2d.drawLine(beginOutlineX, beginOutlineY, endOutlineX, endOutlineY);
+				//g2d.fillPolygon(xPoints, yPoints, nPoints);			
 		}
 			
 		}

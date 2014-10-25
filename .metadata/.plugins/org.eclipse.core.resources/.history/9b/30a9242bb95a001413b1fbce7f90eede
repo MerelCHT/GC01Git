@@ -1,0 +1,39 @@
+
+public class Ex2 {
+	
+	
+	public static void main(String[] args)
+	{
+		String[] arr = {"The ", "quick ", "brown ", "fox ", "jumps ", "over ", "the ", "lazy ", "dog."};
+		String[] out = remElement(arr, 7);
+		for(int n = 0; n < out.length - 1 ; n++)
+		{
+			System.out.println(out[n]);
+		}
+		
+	}
+	
+	//Removes an element from an array. 
+	public static String[] remElement(String[] array, int i)
+	{
+		String[] arr2 = new String[array.length];
+		for(int n = 0; n < array.length - 1 ; n++)
+		{
+			if(n < i)
+			{
+				arr2[n] = array[n];
+			}
+			else
+			{
+				arr2[n] = array[n + 1];
+			}
+			
+			//System.out.print(arr2[n]);
+		}
+		
+		return array;
+		
+		
+	}
+
+}

@@ -11,4 +11,6 @@
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="pieces.Rook"/>
 <fullyQualifiedTypeName name="pieces.Pawn"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="Ex2.CurrencyGUI.Currency"/>
 </qualifiedTypeNameHistroy>

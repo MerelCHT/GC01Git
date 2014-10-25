@@ -15,6 +15,7 @@ public class Ex1 {
 	{
 		boolean isEven = (number % 2 == 0);
 		return isEven;
+		// return !(number%2);
 		
 		/* The use of a local variable: 
 		boolean isEven = false;

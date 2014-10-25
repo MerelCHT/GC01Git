@@ -1,0 +1,80 @@
+package Ex2;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JEditorPane;
+import javax.swing.JScrollBar;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class BlogWriter {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					BlogWriter window = new BlogWriter();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public BlogWriter() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+		
+		JEditorPane dtrpnBlogentry = new JEditorPane();
+		dtrpnBlogentry.setBounds(42, 45, 374, 192);
+		panel.add(dtrpnBlogentry);
+		
+		JLabel lblWriteNewBlog = new JLabel("Write new blog post:");
+		lblWriteNewBlog.setBounds(42, 17, 139, 16);
+		panel.add(lblWriteNewBlog);
+		
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+//				try
+//				{
+//				    System.out.println(dtrpnBlogentry.getText()));
+//				}
+//				catch (NumberFormatException f)
+//				{
+//				    System.out.println("Not a number");
+//				}
+			
+			}
+		});
+		btnSubmit.setBounds(299, 243, 117, 29);
+		panel.add(btnSubmit);
+	}
+}

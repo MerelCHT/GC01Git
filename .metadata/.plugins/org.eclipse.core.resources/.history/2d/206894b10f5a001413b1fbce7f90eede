@@ -1,0 +1,109 @@
+package Ex2;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import java.awt.BorderLayout;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+
+public class CurrencyGUI {
+
+	private JFrame frame;
+	private JTextField amount;
+	private JButton btnNewButton = new JButton("Convert");
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CurrencyGUI window = new CurrencyGUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public CurrencyGUI() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblEnterAmount = new JLabel("Enter amount");
+		lblEnterAmount.setBounds(24, 173, 94, 16);
+		frame.getContentPane().add(lblEnterAmount);
+		
+		amount = new JTextField();
+		amount.setBounds(118, 167, 134, 28);
+		frame.getContentPane().add(amount);
+		amount.setColumns(10);
+		
+		
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == btnNewButton){
+					System.out.println("The convert button is clicked");
+				}
+			}
+		});
+		
+
+		btnNewButton.setBounds(279, 168, 117, 29);
+		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblConvertFrom = new JLabel("Convert from:");
+		lblConvertFrom.setBounds(34, 6, 94, 16);
+		frame.getContentPane().add(lblConvertFrom);
+		
+		JLabel lblTo = new JLabel("To:");
+		lblTo.setBounds(279, 6, 61, 16);
+		frame.getContentPane().add(lblTo);
+		
+		JComboBox fromCurrency = new JComboBox(new String[]{"GBP", "EUR", "USD", "YEN"});
+		fromCurrency.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JComboBox fromCurrency = (JComboBox)e.getSource();
+		        String petName = (String)fromCurrency.getSelectedItem();
+		        System.out.println(petName);
+
+			}
+		});
+		fromCurrency.setBounds(44, 34, 74, 27);
+		frame.getContentPane().add(fromCurrency);
+		
+		JComboBox toCurrency = new JComboBox(new String[]{"GBP", "EUR", "USD", "YEN"});
+		
+		toCurrency.setBounds(279, 34, 82, 27);
+		frame.getContentPane().add(toCurrency);
+	}
+}

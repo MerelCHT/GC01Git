@@ -1,22 +1,21 @@
 package pieces;
 
+/**
+ * @author Merel Theisen
+ */
 import pieces.AbstractPiece;
 
 import java.util.Scanner;
 
 	public class Chess {
-
-		/**
-		 * @param args
-		 */
 		
-		//Make a constant to set the dimensions of the chess board, instead of using "magic" numbers. 
+		/**Make a constant to set the dimensions of the chess board, instead of using "magic" numbers.*/ 
 		public static final int DIMENSIONS = 8;
 		
-		//Make an array to set the score of both players. The first int indicates the score of white, and the second of black. 
+		/**Make an array to set the score of both players. The first int indicates the score of white, and the second of black. */ 
 		public static int[] score = {0,0};
 		
-		//Creates a chessboard matrix of size 8 x 8, and indicates which piece should be in which spot. 
+		/**Creates a chessboard matrix of size 8 x 8, and indicates which piece should be in which spot. */ 
 		public static void main(String[] args) {
 			Scanner chessmove = new Scanner(System.in);
 			AbstractPiece[][] chessboard = new AbstractPiece [DIMENSIONS] [DIMENSIONS];
@@ -93,14 +92,14 @@ import java.util.Scanner;
 				}
 			}
 			
-			//Checks whether the user wants to perform a next move or wants to exit. 
+			/**Checks whether the user wants to perform a next move or wants to exit.*/ 
 			Boolean exit = false;
 			int counter = 0;
 			while(!exit)
 			{
 				printBoard(chessboard);
 				
-				//Keeps track of whose turn it is. White starts. 
+				/**Keeps track of whose turn it is. White starts.*/ 
 				if(counter % 2 == 0)
 				{
 					System.out.println("It's white's turn.");
@@ -117,7 +116,7 @@ import java.util.Scanner;
 				{
 					System.exit(0);
 				}
-				else if(move.length() != 8) //The 8 indicates the exact length that the input should be.
+				else if(move.length() != 8) /**The 8 indicates the exact length that the input should be.*/
 				{
 					System.err.println("That's invalid input.");
 				}
@@ -128,7 +127,10 @@ import java.util.Scanner;
 			}
 		}
 		
-		//This method takes the chessboard as an input and prints it to the console.
+		/**This method takes the chessboard as an input and prints it to the console.
+		 * 
+		 * @param chessboard
+		 */
 		public static void printBoard(AbstractPiece[][] chessboard){
 			System.out.println("\t a \t b \t c \t d \t e \t f \t g \t h");
 			for(int i = 0; i< chessboard.length ; i++)
@@ -152,16 +154,22 @@ import java.util.Scanner;
 			}
 			
 
-		//This method takes a chessboard and a move as input and performs the move on the board.
+		/**This method takes a chessboard and a move as input and performs the move on the board.
+		 * 
+		 * @param chessboard
+		 * @param move
+		 */
 		public static void move(AbstractPiece[][] chessboard, String move)
 		{	
 
-			//parse move string into components
+			/**parse move string into components*/
 			String[] components = move.split(" ");
 			
-			//if you assume that the move is "e1 to e5" then
-			//components[0].charAt(0) = 'e'
-			//components[0].charAt(1) == '1'
+			/**if you assume that the move is "e1 to e5" then
+			 * components[0].charAt(0) = 'e'
+			 * components[0].charAt(1) == '1'
+			 */
+			
 			
 			int oldPosY;
 			int oldPosX = Character.getNumericValue(components[0].charAt(1) - 1);
@@ -209,7 +217,7 @@ import java.util.Scanner;
 				oldPosY = 7;
 			}
 			
-			//Set the new position of Y. 
+			/**Set the new position of Y.*/ 
 			if (components[2].charAt(0) == 'a')
 			{
 				newPosY = 0;
@@ -251,8 +259,9 @@ import java.util.Scanner;
 			}
 			
 			
-			//Make the move: replace the original position with an empty space
-			//and place the piece you're moving into the new position. 
+			/**Make the move: replace the original position with an empty space
+			*and place the piece you're moving into the new position.
+			*/ 
 			if ((Character.getNumericValue(components[0].charAt(1))  > 8) || (Character.getNumericValue(components[2].charAt(1)) > 8))
 			{
 				System.err.println("That's invalid input.");
@@ -273,26 +282,29 @@ import java.util.Scanner;
 		}
 		
 		
-		//This method checks whether the player's move is valid or not.
+		/**This method checks whether the player's move is valid or not. The checks are as follows:
+		 * 1. It checks whether the place you're going to is empty and whether the piece you're moving isn't an empty spot.
+		 * 2. It checks whether you're not moving an empty spot, and if you move a black piece it makes sure you can only move it to a place where there's a white piece.
+		 * 3. It checks whether you're not moving an empty spot, and if you move a white piece it makes sure you can only move it to a place where there's a black piece.
+		 * 4. If you're trying to move an empty spot or put a black piece on the spot of a black piece or a white piece on the spot of a white piece, it will tell you your move is invalid.  
+		 * @param chessboard
+		 * @param oldPosX
+		 * @param oldPosY
+		 * @param newPosX
+		 * @param newPosY
+		 * @return
+		 */
 		public static boolean checkMove(AbstractPiece[][] chessboard, int oldPosX, int oldPosY, int newPosX, int newPosY)
 		{
 			boolean validMove = false;
-			//This checks whether the place you're going to is empty and whether the piece you're moving isn't an empty spot. 
+			
 			if(chessboard[newPosX][newPosY] == null && (chessboard[oldPosX][oldPosY]!=null)){
 				   validMove = chessboard[oldPosX][oldPosY].isMoveValid(oldPosX, oldPosY, newPosX, newPosY);
 				 }
-			//This checks whether you're not moving an empty spot, and if you move a black piece it makes sure you can only move it to 
-			//a place where there's a white piece. 
-			else if((chessboard[oldPosX][oldPosY]!=null) && (!chessboard[oldPosX][oldPosY].isWhite() && chessboard[newPosX][newPosY].isWhite())){
+			
+			else if((chessboard[oldPosX][oldPosY]!=null) && (chessboard[oldPosX][oldPosY].isWhite() != chessboard[newPosX][newPosY].isWhite())){
 					validMove = chessboard[oldPosX][oldPosY].isMoveValid(oldPosX, oldPosY, newPosX, newPosY);
-				}
-			//This checks whether you're not moving an empty spot, and if you move a white piece it makes sure you can only move it to 
-			//a place where there's a black piece. 
-			else if ((chessboard[oldPosX][oldPosY]!=null) &&(chessboard[oldPosX][oldPosY].isWhite() &&!chessboard[newPosX][newPosY].isWhite())){
-					validMove = false;
-				}
-			//If you're trying to move an empty spot or put a black piece on the spot of a black piece or a white piece
-			// on the spot of a white piece, it will tell you your move is invalid. 
+			}
 			else{
 				validMove = false;
 			}
@@ -300,7 +312,15 @@ import java.util.Scanner;
 		}
 		
 		
-		//This keeps track of the players score. 
+		/**This keeps track of the players score. 
+		 * 
+		 * @param chessboard
+		 * @param oldPosX
+		 * @param oldPosY
+		 * @param newPosX
+		 * @param newPosY
+		 * @return
+		 */
 		public static int[] score(AbstractPiece[][] chessboard, int oldPosX, int oldPosY, int newPosX, int newPosY){
 		
 			if(chessboard[newPosX][newPosY] == null && (chessboard[oldPosX][oldPosY]!=null)){

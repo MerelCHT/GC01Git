@@ -1,3 +1,5 @@
+
+
 package Chess;
 
 import pieces.AbstractPiece;
@@ -9,35 +11,20 @@ import pieces.King;
 import pieces.Queen;
 
 import java.util.Scanner;
+/**
+ * 
+ * <p>This programme creates a chessboard.</p>
+ * @author Merel Theisen
+ * @version 1.2, Updated: 22/10/2014.
+ */
 
 	public class Chess {
 
-		/**
-		 * @param args
-		 */
 		
-		/*
-		//Creates all the possible chess pieces, including empty for an empty space on the chess board.
-		public enum Chessmen{
-			WHITE_KING,
-			WHITE_QUEEN,
-			WHITE_ROOK,
-			WHITE_BISHOP,
-			WHITE_KNIGHT,
-			WHITE_PAWN,
-			BLACK_KING,
-			BLACK_QUEEN,
-			BLACK_ROOK,
-			BLACK_BISHOP,
-			BLACK_KNIGHT,
-			BLACK_PAWN,
-			EMPTY
-		}
 		
-		*/
-		
-		//Make a constant to set the dimensions of the chess board, instead of using "magic" numbers. 
+		/**Make a constant to set the dimensions of the chess board, instead of using "magic" numbers. */
 		public static final int DIMENSIONS = 8;
+		
 		
 		//Creates a chessboard matrix of size 8 x 8. 
 		public static void main(String[] args) {
